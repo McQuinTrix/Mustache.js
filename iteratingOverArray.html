@@ -1,0 +1,22 @@
+<div id="sample">
+    
+</div>
+
+<script id="perTemp" type="text/template">
+    <h1>{{name}}</h1>
+    {{#skills}}
+    <ul>
+        <li>{{.}}</li>
+    </ul>
+    {{/skills}}
+</script>
+
+<script type="text/javascript">
+  var jsonData = {
+    				name: "john",
+    				skills: ["JS","Java","PHP","Wordpress"]
+  				};
+  var tmpl = document.getElementById("perTemp").innerHTML;
+  var html = Mustache.to_html(tmpl,jsonData);
+  document.getElementById("sample").innerHTML = html;
+</script>
