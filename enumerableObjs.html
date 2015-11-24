@@ -1,0 +1,32 @@
+<div id="sample">
+    
+</div>
+
+<script id="partial" type="text/template">
+    <h1>Reponame:{{name}}</h1>
+    <p>
+        <h3>Full Name: {{full_name}}</h3>
+        <h3>ID:{{id}}</h3>
+    </p>
+</script>
+
+<script type="text/javascript">
+ /**Enumerable Objects*/
+var jsonData = {
+    				employees: [
+                        {
+                            fname:"Harshal",
+                            lname:"Carpenter",
+                            skills: ["JavaScript","Angular.js"]
+                        },
+                        {
+                            fname:"John",
+                            lname:"Resig",
+                            skills: ["JavaScript","Angular.js","CSS"]
+                        }
+                       ]
+				};
+var tmpl = document.getElementById("perTemp").innerHTML;
+var html = Mustache.to_html(tmpl,jsonData);
+document.getElementById("sample").innerHTML = html;
+</script>
