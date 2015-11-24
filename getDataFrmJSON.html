@@ -1,0 +1,18 @@
+<div id="sample">
+    
+</div>
+
+<script id="partial" type="text/template">
+    <p>{{fname}} {{lname}}</p>
+</script>
+
+<script type="text/javascript">
+  $.getJSON("https://api.github.com/users/mralexgray/repos",function(data){
+	var template = "<h1>Reponame:{{name}}<h1><p><h3>Full Name: {{full_name}}</h3><h3>ID:{{id}}</h3></p>";
+    var html = "<h1>Repo's</h1>";
+    for(var i=0;i<data.length;i++){
+    	html += Mustache.to_html(template,data[i]);
+    }
+    document.getElementById("sample").innerHTML = html;
+});
+</script>
