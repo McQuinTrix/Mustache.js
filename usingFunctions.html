@@ -1,0 +1,36 @@
+<div id="sample">
+    
+</div>
+
+<script id="partial" type="text/template">
+    <h3>{{fname}}</h3>
+    {{#manager}}
+    <p>Manager: {{showFull}}</p>
+    {{/manager}}
+</script>
+
+<script type="text/javascript">
+  var jsonData = {
+    				fname: "Harshal",
+    				manager: [
+                        {
+                            fname: "John",
+                            lname: "Resig",
+                            showFull: function(){
+                                return this.lname+", "+this.fname;
+							}
+                    	},
+                        {
+                            fname: "Eric",
+                            lname: "Elliot",
+                            showFull: function(){
+                                return this.lname+", "+this.fname;
+                            }
+                    	}
+                    ]
+    				
+				};
+var tmpl = document.getElementById("perTemp").innerHTML;
+var html = Mustache.to_html(tmpl,jsonData);
+document.getElementById("sample").innerHTML = html;
+</script>
