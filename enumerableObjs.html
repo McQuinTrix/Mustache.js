@@ -2,12 +2,16 @@
     
 </div>
 
-<script id="partial" type="text/template">
-    <h1>Reponame:{{name}}</h1>
-    <p>
-        <h3>Full Name: {{full_name}}</h3>
-        <h3>ID:{{id}}</h3>
-    </p>
+<script id="perTemp" type="text/template">
+    {{#employees}}
+    	<p>{{fname}}{{lname}}</p>
+    	Skills:
+    	<ul>
+    		{{#skills}}
+    			<li>{{.}}</li>
+    		{{/skills}}
+    	</ul>
+    {{/employees}}
 </script>
 
 <script type="text/javascript">
