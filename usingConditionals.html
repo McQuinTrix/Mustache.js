@@ -1,0 +1,29 @@
+<div id="sample">
+    
+</div>
+
+<script id="temp" type="text/template">
+    {{#employees}}
+      {{#show}}<h3>{{lname}}, {{fname}}</h3>{{/show}}
+    {{/employees}}
+</script>
+
+<script type="text/javascript">
+  var jsonData = {
+    employees: [
+      {
+        fName: "Pam",
+        lName: "Beesly",
+        show: true
+      },
+      {
+        fName: "Creed",
+        lName: "Bratton",
+        show: false
+      }
+    ]  
+  }
+  var temp = document.getElementById("temp").innerHTML;
+  var html = Mustache.to_html(jsonData,temp);
+  document.getElementById("sample").innerHTML = html;
+</script>
